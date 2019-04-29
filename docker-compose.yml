@@ -1,17 +1,6 @@
 version: "2"
 services:
 
-   db:
-     image: mysql:5.7
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: 11111
-       MYSQL_DATABASE: provider
-       MYSQL_USER: provider
-       MYSQL_PASSWORD: provider
-
    provider_web_tomcat:
      depends_on:
        - db
@@ -23,6 +12,76 @@ services:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: provider
        WORDPRESS_DB_PASSWORD: provider
+   admin_web_tomcat:
+     depends_on:
+       - db
+     image: tomcat:8-jre8
+     ports:
+       - "8080:8080"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: provider
+       WORDPRESS_DB_PASSWORD: provider
+   app_client_tomcat:
+     depends_on:
+       - db
+     image: tomcat:8-jre8
+     ports:
+       - "8080:8080"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: provider
+       WORDPRESS_DB_PASSWORD: provider
+       
+   paygateway_server_tomcat:
+     depends_on:
+       - db
+     image: tomcat:8-jre8
+     ports:
+       - "8080:8080"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: provider
+       WORDPRESS_DB_PASSWORD: provider
+       
+   repo_server_tomcat:
+     depends_on:
+       - db
+     image: tomcat:8-jre8
+     ports:
+       - "8080:8080"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: provider
+       WORDPRESS_DB_PASSWORD: provider
+
+   scheduler_tomcat:
+     depends_on:
+       - db
+     image: tomcat:8-jre8
+     ports:
+       - "8080:8080"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: provider
+       WORDPRESS_DB_PASSWORD: provider
+
+   ticket_tomcat:
+     depends_on:
+       - db
+     image: tomcat:8-jre8
+     ports:
+       - "8080:8080"
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: provider
+       WORDPRESS_DB_PASSWORD: provider       
+  
 volumes:
     db_data:
-
