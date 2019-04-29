@@ -6,7 +6,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "18083:18083"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
@@ -17,7 +17,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "18089:18089"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
@@ -28,7 +28,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "18089:18089"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
@@ -40,7 +40,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "18882:18882"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
@@ -52,7 +52,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "8081:8081"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
@@ -64,7 +64,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "18098:18098"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
@@ -76,7 +76,7 @@ services:
        - db
      image: tomcat:8-jre8
      ports:
-       - "8080:8080"
+       - "18580:18580"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
