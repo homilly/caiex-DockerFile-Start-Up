@@ -2,7 +2,7 @@
 # VERSION 0.0.1
 # Author: XiaoMi
 
-FROM Tomcat:8
+FROM tomcat:8-jre8
 
 MAINTAINER XiaoMi <homillyxiao@gmail.com>
 
