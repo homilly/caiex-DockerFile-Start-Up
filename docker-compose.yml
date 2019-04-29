@@ -2,7 +2,11 @@ version: "2" #版本号
 services:
    
    paygateway_server_tomcat: #服务名称（不是容器名）
+     container_name: paygateway_server_tomcat #容器名称
      image: tomcat:8-jre8 #使用的镜像
+     build:
+       context: .
+       dockerfile: Dockerfile
      ports:
        - "18882:18882"  #暴露的端口信息和docker run -d -p 80:80 一样
      restart: always  #重启策略，能够使服务保持始终运行，生产环境推荐使用
@@ -10,10 +14,10 @@ services:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: provider
        WORDPRESS_DB_PASSWORD: provider
-     container_name: paygateway_server_tomcat #容器名称
      #挂载文件ps:如果是挂载文件必须在容器中也指定名称，推荐是挂载文件夹，下面只是做个文件挂载的案例也可以
      #挂载文件夹/root/compose_test/jdk/:/data
      volumes:
+     networks: 
      entrypoint:  #启动容器后执行的命令
        
    repo_server_tomcat:
